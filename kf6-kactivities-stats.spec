@@ -26,6 +26,7 @@ BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
 BuildRequires: cmake(Qt6Sql)
+BuildRequires: cmake(Qt6Quick)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(KF6Config)
 BuildRequires: cmake(KF6Activities)
