@@ -1,6 +1,6 @@
 %define libname %mklibname KF6ActivitiesStats
 %define devname %mklibname KF6ActivitiesStats -d
-%define git 20230623
+%define git 20230627
 
 Name: kf6-kactivities-stats
 Version: 5.240.0
