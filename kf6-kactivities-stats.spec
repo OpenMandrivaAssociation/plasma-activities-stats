@@ -1,6 +1,6 @@
 %define libname %mklibname KF6ActivitiesStats
 %define devname %mklibname KF6ActivitiesStats -d
-%define git 20230927
+%define git 20231005
 
 Name: kf6-kactivities-stats
 Version: 5.240.0
@@ -75,7 +75,6 @@ Library for accessing the usage data collected by the activities system
 %files -n %{devname}
 %{_includedir}/KF6/KActivitiesStats
 %{_libdir}/cmake/KF6ActivitiesStats
-%{_qtdir}/mkspecs/modules/qt_KActivitiesStats.pri
 %{_qtdir}/doc/KF6ActivitiesStats.*
 %{_libdir}/pkgconfig/KF6ActivitiesStats.pc
 
