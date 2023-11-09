@@ -1,11 +1,17 @@
+%define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
+
 %define libname %mklibname KF6ActivitiesStats
 %define devname %mklibname KF6ActivitiesStats -d
-%define git 20231103
+#define git 20231103
 
 Name: kf6-kactivities-stats
-Version: 5.240.0
+Version: 5.27.80
 Release: %{?git:0.%{git}.}1
+%if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kactivities-stats/-/archive/master/kactivities-stats-master.tar.bz2#/kactivities-stats-%{git}.tar.bz2
+%else
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/kactivities-stats-%{version}.tar.xz
+%endif
 Summary: Library for accessing the usage data collected by the activities system
 URL: https://invent.kde.org/frameworks/kactivities-stats
 License: CC0-1.0 LGPL-2.0+ LGPL-2.1 LGPL-3.0
