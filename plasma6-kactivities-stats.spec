@@ -6,7 +6,7 @@
 
 Name: kf6-kactivities-stats
 Version: 5.27.80
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kactivities-stats/-/archive/master/kactivities-stats-master.tar.bz2#/kactivities-stats-%{git}.tar.bz2
 %else
