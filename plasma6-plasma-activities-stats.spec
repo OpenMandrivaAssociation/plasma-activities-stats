@@ -1,19 +1,23 @@
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
-%define libname %mklibname KF6ActivitiesStats
-%define devname %mklibname KF6ActivitiesStats -d
+# Renamed in 5.90.0
+%define oldlibname %mklibname KF6ActivitiesStats
+%define olddevname %mklibname KF6ActivitiesStats -d
+
+%define libname %mklibname PlasmaActivitiesStats
+%define devname %mklibname PlasmaActivitiesStats -d
 #define git 20231103
 
-Name: kf6-kactivities-stats
-Version: 5.27.80
-Release: %{?git:0.%{git}.}2
+Name: kf6-plasma-activities-stats
+Version: 5.90.0
+Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
-Source0: https://invent.kde.org/frameworks/kactivities-stats/-/archive/master/kactivities-stats-master.tar.bz2#/kactivities-stats-%{git}.tar.bz2
+Source0: https://invent.kde.org/frameworks/plasma-activities-stats/-/archive/master/plasma-activities-stats-master.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
 %else
-Source0: http://download.kde.org/%{stable}/plasma/%{version}/kactivities-stats-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/plasma-activities-stats-%{version}.tar.xz
 %endif
 Summary: Library for accessing the usage data collected by the activities system
-URL: https://invent.kde.org/frameworks/kactivities-stats
+URL: https://invent.kde.org/frameworks/plasma-activities-stats
 License: CC0-1.0 LGPL-2.0+ LGPL-2.1 LGPL-3.0
 Group: System/Libraries
 BuildRequires: cmake
@@ -36,7 +40,7 @@ BuildRequires: cmake(Qt6Quick)
 BuildRequires: cmake(Qt6QuickWidgets)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(KF6Config)
-BuildRequires: cmake(KF6Activities)
+BuildRequires: cmake(PlasmaActivities)
 BuildRequires: boost-devel
 Requires: %{libname} = %{EVRD}
 
@@ -47,6 +51,7 @@ Library for accessing the usage data collected by the activities system
 Summary: Library for accessing the usage data collected by the activities system
 Group: System/Libraries
 Requires: %{name} = %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 Library for accessing the usage data collected by the activities system
@@ -55,6 +60,7 @@ Library for accessing the usage data collected by the activities system
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
@@ -62,7 +68,7 @@ Development files (Headers etc.) for %{name}.
 Library for accessing the usage data collected by the activities system
 
 %prep
-%autosetup -p1 -n kactivities-stats-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n plasma-activities-stats-%{?git:master}%{!?git:%{version}}
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
@@ -76,13 +82,13 @@ Library for accessing the usage data collected by the activities system
 %ninja_install -C build
 
 %files
-%{_datadir}/qlogging-categories6/kactivities-stats.*
+%{_datadir}/qlogging-categories6/plasma-activities-stats.*
 
 %files -n %{devname}
-%{_includedir}/KF6/KActivitiesStats
-%{_libdir}/cmake/KF6ActivitiesStats
-%{_qtdir}/doc/KF6ActivitiesStats.*
-%{_libdir}/pkgconfig/KF6ActivitiesStats.pc
+%{_includedir}/PlasmaActivitiesStats
+%{_libdir}/cmake/PlasmaActivitiesStats
+%{_qtdir}/doc/PlasmaActivitiesStats.*
+%{_libdir}/pkgconfig/PlasmaActivitiesStats.pc
 
 %files -n %{libname}
-%{_libdir}/libKF6ActivitiesStats.so*
+%{_libdir}/libPlasmaActivitiesStats.so*
