@@ -9,7 +9,7 @@
 #define git 20231103
 
 Name: kf6-plasma-activities-stats
-Version: 5.91.0
+Version: 5.92.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/plasma-activities-stats/-/archive/master/plasma-activities-stats-master.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
