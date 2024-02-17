@@ -6,13 +6,13 @@
 
 %define libname %mklibname PlasmaActivitiesStats
 %define devname %mklibname PlasmaActivitiesStats -d
-#define git 20231103
+%define git 20240217
 
 Name: kf6-plasma-activities-stats
-Version: 5.93.0
+Version: 5.94.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
-Source0: https://invent.kde.org/frameworks/plasma-activities-stats/-/archive/master/plasma-activities-stats-master.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
+Source0: https://invent.kde.org/plasma/plasma-activities-stats/-/archive/master/plasma-activities-stats-master.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/plasma-activities-stats-%{version}.tar.xz
 %endif
