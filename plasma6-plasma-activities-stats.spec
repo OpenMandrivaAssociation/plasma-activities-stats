@@ -46,6 +46,9 @@ BuildRequires: cmake(PlasmaActivities)
 BuildRequires: boost-devel
 Requires: %{libname} = %{EVRD}
 
+%patchlist
+https://invent.kde.org/plasma/plasma-activities-stats/-/commit/7990b5b92f456431e9c4ccc8e4dac65e56420220.patch
+
 %description
 Library for accessing the usage data collected by the activities system
 
