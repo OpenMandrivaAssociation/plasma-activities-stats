@@ -7,12 +7,14 @@
 %define libname %mklibname PlasmaActivitiesStats
 %define devname %mklibname PlasmaActivitiesStats -d
 %define git 20240217
+%define gitbranch Plasma/6.0
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: kf6-plasma-activities-stats
 Version: 5.94.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
-Source0: https://invent.kde.org/plasma/plasma-activities-stats/-/archive/master/plasma-activities-stats-master.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
+Source0: https://invent.kde.org/plasma/plasma-activities-stats/-/archive/%{gitbranch}/plasma-activities-stats-%{gitbranchd}.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/plasma-activities-stats-%{version}.tar.xz
 %endif
@@ -68,7 +70,7 @@ Development files (Headers etc.) for %{name}.
 Library for accessing the usage data collected by the activities system
 
 %prep
-%autosetup -p1 -n plasma-activities-stats-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n plasma-activities-stats-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
