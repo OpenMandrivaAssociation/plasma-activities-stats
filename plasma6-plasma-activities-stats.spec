@@ -6,12 +6,12 @@
 
 %define libname %mklibname PlasmaActivitiesStats
 %define devname %mklibname PlasmaActivitiesStats -d
-%define git 20240217
+%define git 20240222
 %define gitbranch Plasma/6.0
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: kf6-plasma-activities-stats
-Version: 5.94.0
+Version: 6.0.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/plasma-activities-stats/-/archive/%{gitbranch}/plasma-activities-stats-%{gitbranchd}.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
@@ -45,9 +45,6 @@ BuildRequires: cmake(KF6Config)
 BuildRequires: cmake(PlasmaActivities)
 BuildRequires: boost-devel
 Requires: %{libname} = %{EVRD}
-
-%patchlist
-https://invent.kde.org/plasma/plasma-activities-stats/-/commit/7990b5b92f456431e9c4ccc8e4dac65e56420220.patch
 
 %description
 Library for accessing the usage data collected by the activities system
