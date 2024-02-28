@@ -6,7 +6,7 @@
 
 %define libname %mklibname PlasmaActivitiesStats
 %define devname %mklibname PlasmaActivitiesStats -d
-%define git 20240222
+#define git 20240222
 %define gitbranch Plasma/6.0
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
