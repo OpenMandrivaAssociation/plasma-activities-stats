@@ -11,7 +11,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: kf6-plasma-activities-stats
-Version: 6.1.5
+Version: 6.2.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/plasma-activities-stats/-/archive/%{gitbranch}/plasma-activities-stats-%{gitbranchd}.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
