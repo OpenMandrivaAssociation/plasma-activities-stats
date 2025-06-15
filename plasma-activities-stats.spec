@@ -7,7 +7,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma-activities-stats
-Version: 6.3.5
+Version: 6.4.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/plasma-activities-stats/-/archive/%{gitbranch}/plasma-activities-stats-%{gitbranchd}.tar.bz2#/plasma-activities-stats-%{git}.tar.bz2
@@ -67,13 +67,22 @@ Development files (Headers etc.) for %{name}.
 
 Library for accessing the usage data collected by the activities system
 
+%package doc
+Summary: Developer documentation for %{name} in Qt Assistant format
+Group: Development/C
+
+%description doc
+Developer documentation for %{name} in Qt Assistant format
+
+%files doc
+%{_qtdir}/doc/PlasmaActivitiesStats.*
+
 %files
 %{_datadir}/qlogging-categories6/plasma-activities-stats.*
 
 %files -n %{devname}
 %{_includedir}/PlasmaActivitiesStats
 %{_libdir}/cmake/PlasmaActivitiesStats
-%{_qtdir}/doc/PlasmaActivitiesStats.*
 %{_libdir}/pkgconfig/PlasmaActivitiesStats.pc
 
 %files -n %{libname}
