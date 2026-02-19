@@ -35,6 +35,7 @@ BuildRequires: cmake(Qt6Quick)
 BuildRequires: cmake(Qt6QuickWidgets)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(KF6Config)
+BuildRequires: cmake(KF6CoreAddons)
 BuildRequires: cmake(PlasmaActivities)
 BuildRequires: boost-devel
 BuildRequires: python
